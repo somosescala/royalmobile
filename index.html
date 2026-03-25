@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Mobile Detailing - Seattle's Premier Auto Detailing Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #111827;
+            --accent: #2563EB;
+            --background: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .shadow-layered {
+            box-shadow:
+                0 1px 3px rgba(37, 99, 235, 0.08),
+                0 4px 12px rgba(37, 99, 235, 0.06),
+                0 16px 32px rgba(17, 24, 39, 0.04);
+        }
+
+        .shadow-layered-lg {
+            box-shadow:
+                0 2px 8px rgba(37, 99, 235, 0.1),
+                0 8px 24px rgba(37, 99, 235, 0.08),
+                0 24px 48px rgba(17, 24, 39, 0.06);
+        }
+
+        .gradient-radial {
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.02) 0%, transparent 50%);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 200ms ease,
+                        opacity 200ms ease;
+            box-shadow:
+                0 4px 12px rgba(37, 99, 235, 0.3),
+                0 8px 24px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 20px rgba(37, 99, 235, 0.4),
+                0 16px 32px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--accent);
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 300ms ease;
+            cursor: pointer;
+            border: 1px solid rgba(17, 24, 39, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .pricing-card-new {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(17, 24, 39, 0.08);
+        }
+
+        .pricing-card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pricing-card-content {
+            padding: 2rem 1.5rem;
+        }
+
+        .pricing-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-item {
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #00BCD4;
+        }
+
+        .pricing-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-section-title {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #111827;
+            margin: 1.5rem 0 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-category {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #111827;
+            margin: 1.25rem 0 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .checkmark-cyan {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+            fill: none;
+            stroke: #00BCD4;
+            stroke-width: 3;
+        }
+
+        .pricing-disclaimer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(17, 24, 39, 0.1);
+            font-size: 0.8rem;
+            color: #64748b;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .feature-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card:hover .feature-icon {
+            transform: rotate(10deg) scale(1.1);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+            padding: 1.75rem 0;
+            cursor: pointer;
+            transition: all 200ms ease;
+        }
+
+        .faq-item:hover {
+            padding-left: 1rem;
+            border-bottom-color: var(--accent);
+        }
+
+        .gallery-image {
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(17, 24, 39, 0.4) 100%);
+            opacity: 0;
+            transition: opacity 300ms ease;
+        }
+
+        .gallery-image:hover::after {
+            opacity: 1;
+        }
+
+        .step-number {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, #1e40af 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow:
+                0 4px 12px rgba(37, 99, 235, 0.3),
+                0 8px 24px rgba(37, 99, 235, 0.15);
+        }
+
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            box-shadow: 0 2px 12px rgba(17, 24, 39, 0.06);
+            border: 1px solid rgba(17, 24, 39, 0.04);
+            transition: all 200ms ease;
+            cursor: pointer;
+        }
+
+        .google-badge:hover {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 16px rgba(17, 24, 39, 0.08);
+        }
+
+        .google-badge-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .google-badge-stars {
+            display: flex;
+            gap: 1px;
+        }
+
+        .google-badge-star {
+            width: 0.875rem;
+            height: 0.875rem;
+            fill: #FBBC04;
+        }
+
+        .google-badge-number {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .google-badge-reviews {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .google-logo {
+            width: 1.125rem;
+            height: 1.125rem;
+            flex-shrink: 0;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid rgba(17, 24, 39, 0.1);
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 200ms ease;
+            background: white !important;
+            color: #111827 !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8;
+            opacity: 1;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .btn-primary, .btn-secondary {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll Animation Styles */
+        .scroll-animate {
+            opacity: 0 !important;
+            transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        .scroll-animate[data-animation="fadeInScale"] {
+            transform: scale(0.7) translateY(60px) rotate(-3deg) !important;
+            filter: blur(12px);
+        }
+
+        .scroll-animate.active {
+            opacity: 1 !important;
+            transform: scale(1) translateY(0) rotate(0deg) !important;
+            filter: blur(0);
+        }
+
+        /* Parallax container */
+        .parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-content {
+            transition: transform 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="gradient-radial min-h-screen flex items-center px-4 py-20 md:py-0">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fadeInUp">
+                    <!-- Google Reviews Badge -->
+                    <div class="flex justify-center mb-1.5">
+                        <a href="#" class="google-badge" target="_blank" rel="noopener noreferrer">
+                        <svg class="google-logo" viewBox="0 0 48 48">
+                            <path fill="#4285F4" d="M24 9.5c3.9 0 6.6 1.7 8.1 3.1l6-5.8C34.6 3.6 29.8 1.5 24 1.5 14.8 1.5 7.1 7.3 4.2 15.3l7 5.4C13.1 14.3 18.1 9.5 24 9.5z"/>
+                            <path fill="#34A853" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.2 5.6c4.2-3.9 6.3-9.6 6.3-17.2z"/>
+                            <path fill="#FBBC04" d="M11.2 28.7c-.9-2.6-.9-5.4 0-8l-7-5.4c-3 6-3 13 0 19l7-5.6z"/>
+                            <path fill="#EA4335" d="M24 46.5c5.8 0 10.6-1.9 14.2-5.2l-7.2-5.6c-1.9 1.3-4.4 2.1-7 2.1-5.9 0-10.9-4.8-12.8-11.1l-7 5.6C7.1 40.7 14.8 46.5 24 46.5z"/>
+                        </svg>
+                        <div class="google-badge-rating">
+                            <span class="google-badge-number">4.9</span>
+                            <div class="google-badge-stars">
+                                <svg class="google-badge-star" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg class="google-badge-star" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg class="google-badge-star" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg class="google-badge-star" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg class="google-badge-star" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <span class="google-badge-reviews">· 152 reviews</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <h1 class="font-display text-[32px] text-[#111827] mb-6 leading-tight text-center">
+                        Seattle's Most Trusted
+                        <span class="text-[#2563EB] block mt-2">Mobile Detailing Service</span>
+                    </h1>
+
+                    <p class="text-xl text-[#475569] mb-8 leading-relaxed">
+                        Premium auto detailing that comes to you. Professional results,
+                        guaranteed satisfaction, all from the comfort of your location.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <button class="btn-primary">Book Now</button>
+                        <button class="btn-secondary">Free Quote</button>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold text-[#111827]">Mobile Service</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold text-[#111827]">Satisfaction Guaranteed</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold text-[#111827]">Affordable Prices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Video -->
+                <div class="animate-fadeInUp stagger-2">
+                    <div class="rounded-2xl overflow-hidden shadow-layered-lg">
+                        <video controls autoplay loop muted playsinline
+                               poster="https://placehold.co/600x800/111827/2563EB?text=Professional+Auto+Detailing"
+                               class="w-full h-auto">
+                            <source src="WhatsApp-Video-2025-11-03-at-7.17.53-PM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[28px] text-[#111827] mb-6">
+                    World-Class Car Detailing
+                    <span class="text-[#2563EB] block mt-2">Services in Seattle</span>
+                </h2>
+                <p class="text-xl text-[#475569] max-w-2xl mx-auto">
+                    Choose the perfect package for your vehicle. All services include our satisfaction guarantee.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Full Standard -->
+                <div class="pricing-card-new" style="overflow: hidden;">
+                    <div class="scroll-animate" data-animation="fadeInScale" style="width: 100%; height: 280px;">
+                        <video autoplay loop muted playsinline
+                               class="pricing-card-image"
+                               style="width: 100%; height: 100%; object-fit: cover;">
+                            <source src="freepik_transicin-limpia_kling_1080p_16-9_24fps_91907.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="pricing-card-content">
+                        <h3 class="pricing-title">Full Standard</h3>
+
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <div class="pricing-label">Sedan:</div>
+                                <div class="pricing-value">$325</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">Mini SUV:</div>
+                                <div class="pricing-value">$350</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">SUV/Truck:</div>
+                                <div class="pricing-value">$375</div>
+                            </div>
+                        </div>
+
+                        <p class="pricing-description">
+                            Professional cleaning and protection for regular maintenance.
+                        </p>
+
+                        <div class="pricing-section-title">WHAT'S INCLUDED:</div>
+
+                        <div class="pricing-category">INTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Full vacuum</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Light surface cleaning of seats</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Dashboard & panels cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Interior windows cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>UV protection applied to plastics</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-category">EXTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Hand wash exterior</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Wheels & tires cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Door jambs cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>1-month paint protection</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-disclaimer">
+                            Deep stains usually require extraction service.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Deep (Most Recommended) -->
+                <div class="pricing-card-new" style="border: 2px solid #2563EB; position: relative;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #2563EB; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Most Recommended
+                    </div>
+                    <img src="https://placehold.co/600x400/EEEEEE/333333?text=Deep+Package"
+                         alt="Full Deep Package"
+                         class="pricing-card-image">
+
+                    <div class="pricing-card-content">
+                        <h3 class="pricing-title">Full Deep</h3>
+
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <div class="pricing-label">Sedan:</div>
+                                <div class="pricing-value">$495</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">Mini SUV:</div>
+                                <div class="pricing-value">$525</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">SUV/Truck:</div>
+                                <div class="pricing-value">$575</div>
+                            </div>
+                        </div>
+
+                        <p class="pricing-description">
+                            Our goal is to make the vehicle feel like a reset, not just a quick cleaning.
+                        </p>
+
+                        <div class="pricing-section-title">WHAT'S INCLUDED:</div>
+
+                        <div class="pricing-category">INTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Full vacuum (seats, carpets, trunk/cargo)</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Shampoo & extraction of seats and carpets</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Steam sanitation where needed</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Stain treatment</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Leather conditioning</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-category">EXTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Hand wash exterior</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Wheels & tires cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Door jambs cleaned</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Clay bar paint decontamination</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>1-step paint enhancement</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>3-month paint protection</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Full Advanced -->
+                <div class="pricing-card-new">
+                    <img src="https://placehold.co/600x400/444444/FFFFFF?text=Advanced+Package"
+                         alt="Full Advanced Package"
+                         class="pricing-card-image">
+
+                    <div class="pricing-card-content">
+                        <h3 class="pricing-title">Full Advanced</h3>
+
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <div class="pricing-label">Sedan:</div>
+                                <div class="pricing-value">$595</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">Mini SUV:</div>
+                                <div class="pricing-value">$625</div>
+                            </div>
+                            <div class="pricing-item">
+                                <div class="pricing-label">SUV/Truck:</div>
+                                <div class="pricing-value">$675</div>
+                            </div>
+                        </div>
+
+                        <p class="pricing-description">
+                            Everything in Deep plus advanced treatments for the most demanding situations.
+                        </p>
+
+                        <div class="pricing-section-title">INCLUDES FULL DEEP PLUS:</div>
+
+                        <div class="pricing-category">INTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Pet hair removal included</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Advanced stain treatment</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Deep odor neutralization</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Headliner spot cleaning</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-category">EXTERIOR:</div>
+                        <ul class="pricing-list">
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>1-step polish enhancement</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>6-month paint protection</span>
+                            </li>
+                            <li class="pricing-list-item">
+                                <svg class="checkmark-cyan" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Light engine bay cleaning</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-disclaimer">
+                            Perfect for vehicles with pet hair, stubborn stains, or strong odors.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Condition-Based Adjustments -->
+            <div class="mt-16 max-w-5xl mx-auto">
+                <div class="bg-[#F8FAFC] rounded-2xl p-8 md:p-12">
+                    <h3 class="font-display text-2xl text-[#111827] mb-6 text-center">
+                        Condition-Based Adjustments
+                    </h3>
+                    <p class="text-center text-[#475569] mb-8">
+                        Applied when necessary depending on vehicle condition
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Pet Hair Removal -->
+                        <div>
+                            <h4 class="pricing-category">PET HAIR REMOVAL:</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>Sedan:</strong> Light / Moderate / Heavy</span>
+                                    <span class="font-semibold text-[#111827]">$50 / $75 / $100</span>
+                                </div>
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>Mini SUV:</strong> Light / Moderate / Heavy</span>
+                                    <span class="font-semibold text-[#111827]">$60 / $85 / $125</span>
+                                </div>
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>SUV/Truck:</strong> Light / Moderate / Heavy</span>
+                                    <span class="font-semibold text-[#111827]">$75 / $100 / $150</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mold Treatment -->
+                        <div>
+                            <h4 class="pricing-category">MOLD TREATMENT:</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>Sedan:</strong> Minor / Moderate</span>
+                                    <span class="font-semibold text-[#111827]">$75+ / up to $150</span>
+                                </div>
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>Mini SUV:</strong> Minor / Moderate</span>
+                                    <span class="font-semibold text-[#111827]">$85+ / up to $150</span>
+                                </div>
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-[#475569]"><strong>SUV/Truck:</strong> Minor / Moderate</span>
+                                    <span class="font-semibold text-[#111827]">$100+ / up to $150</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-[#64748b] mt-3 italic">
+                                Severe mold contamination may require Supreme Interior Restoration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tesla Add-on -->
+                    <div class="mt-8 pt-8 border-t border-[#CBD5E1]">
+                        <h4 class="pricing-category text-center">TESLA ADD-ON:</h4>
+                        <div class="flex justify-center items-center gap-4 mt-3">
+                            <span class="text-[#475569]"><strong>Tesla Frunk Cleaning</strong> — Vacuum and surface wipe down</span>
+                            <span class="font-semibold text-[#00BCD4] text-xl">$40</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Gallery -->
+    <section class="py-16 px-4 gradient-radial">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[28px] text-[#111827] mb-6">
+                    Before & After
+                    <span class="text-[#2563EB] block mt-2">Car Detailing Results in Seattle</span>
+                </h2>
+                <p class="text-xl text-[#475569] max-w-2xl mx-auto">
+                    See the transformation. Real results from real customers.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="gallery-image shadow-layered">
+                    <img src="freepik__ultra-realistic-before-and-after-split-image-of-th__20600.jpeg"
+                         alt="Car Exterior Before and After Detailing"
+                         style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+                <div class="gallery-image shadow-layered">
+                    <img src="freepik__ultra-realistic-split-before-and-after-closeup-of-__20597.jpeg"
+                         alt="Wheel Before and After Detailing"
+                         style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+                <div class="gallery-image shadow-layered">
+                    <img src="freepik__ultra-realistic-split-before-and-after-image-of-th__20599.jpeg"
+                         alt="Interior Before and After Detailing"
+                         style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="btn-primary">Request a Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 px-4 bg-gradient-to-b from-[#F8FAFC] to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[28px] text-[#111827] mb-6">
+                    How It Works
+                    <span class="text-[#2563EB] block mt-2">Easy As 1, 2, 3</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="card shadow-layered text-center">
+                    <div class="step-number">1</div>
+                    <h3 class="text-2xl font-bold text-[#111827] mb-4">Book Online</h3>
+                    <p class="text-[#475569] leading-relaxed">
+                        Choose your package and schedule a time that works for you. Quick and easy online booking.
+                    </p>
+                </div>
+
+                <div class="card shadow-layered text-center">
+                    <div class="step-number">2</div>
+                    <h3 class="text-2xl font-bold text-[#111827] mb-4">We Come to You</h3>
+                    <p class="text-[#475569] leading-relaxed">
+                        Our professional team arrives at your location with all equipment. No need to leave home or work.
+                    </p>
+                </div>
+
+                <div class="card shadow-layered text-center">
+                    <div class="step-number">3</div>
+                    <h3 class="text-2xl font-bold text-[#111827] mb-4">Enjoy the Results</h3>
+                    <p class="text-[#475569] leading-relaxed">
+                        Relax while we transform your vehicle. Satisfaction guaranteed or your money back.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 gradient-radial">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[28px] text-[#111827] mb-6">
+                    Frequently Asked
+                    <span class="text-[#2563EB] block mt-2">Questions</span>
+                </h2>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-layered-lg p-8 md:p-12">
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold text-[#111827] mb-2">How long does a detailing service take?</h3>
+                    <p class="text-[#475569]">Most packages take 2-4 hours depending on your vehicle's condition and the package selected.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold text-[#111827] mb-2">Do I need to provide water or electricity?</h3>
+                    <p class="text-[#475569]">No, we bring everything we need including water and power. We're completely self-sufficient.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold text-[#111827] mb-2">What areas do you service?</h3>
+                    <p class="text-[#475569]">We service all of Seattle and surrounding areas within 30 miles of the city center.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold text-[#111827] mb-2">What is your cancellation policy?</h3>
+                    <p class="text-[#475569]">Free cancellation up to 24 hours before your scheduled appointment. Late cancellations may incur a fee.</p>
+                </div>
+
+                <div class="faq-item" style="border-bottom: none;">
+                    <h3 class="text-xl font-semibold text-[#111827] mb-2">Do you offer commercial/fleet services?</h3>
+                    <p class="text-[#475569]">Yes! Contact us for special pricing on multiple vehicles or regular maintenance plans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-[#111827] via-[#1e293b] to-[#111827] text-white relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div style="position: absolute; top: 20%; right: 10%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, #2563EB 0%, transparent 70%);"></div>
+            <div style="position: absolute; bottom: 10%; left: 5%; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, #2563EB 0%, transparent 70%);"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-5xl md:text-6xl mb-6">
+                    Ready to Make Your Car
+                    <span class="text-[#2563EB] block mt-2">Shine Like New?</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Book your detailing service today and experience the Royal Mobile Detailing difference.
+                </p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-layered-lg border border-white/20">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Full Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" placeholder="(206) 555-0123" required>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email</label>
+                            <input type="email" placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Service Package</label>
+                            <select required>
+                                <option>Full Standard - Starting at $325</option>
+                                <option>Full Deep - Starting at $495 (Recommended)</option>
+                                <option>Full Advanced - Starting at $595</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Vehicle Type</label>
+                        <input type="text" placeholder="e.g., 2020 Toyota Camry" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Message (Optional)</label>
+                        <textarea rows="4" placeholder="Any special requests or concerns?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full text-xl py-4">
+                        Get Your Free Quote
+                    </button>
+
+                    <p class="text-center text-sm text-gray-400">
+                        We'll respond within 1 business hour • 100% Satisfaction Guaranteed
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#111827] text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h3 class="font-display text-3xl mb-4">Royal Mobile Detailing</h3>
+            <p class="text-gray-400 mb-6">Seattle's Premier Mobile Auto Detailing Service</p>
+            <p class="text-sm text-gray-500">
+                © 2024 Royal Mobile Detailing. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Scroll Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+
+            console.log('Found scroll-animate elements:', scrollElements.length);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    console.log('Element visible:', entry.isIntersecting, entry.target);
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -150px 0px'
+            });
+
+            scrollElements.forEach(el => {
+                console.log('Observing element:', el);
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

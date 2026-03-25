@@ -1,0 +1,16 @@
+{
+  "brand": "Royal Mobile Detailing",
+  "palette": {
+    "primary": "#111827",
+    "accent": "#2563EB",
+    "background": "#FFFFFF",
+    "textPrimary": "#2563EB",
+    "link": "#2563EB"
+  },
+  "notes": {
+    "primary": "Slate oscuro - para fondos oscuros y texto principal",
+    "accent": "Azul royal - color de marca principal",
+    "background": "Blanco - fondo base",
+    "textPrimary": "Azul royal - texto principal y enlaces"
+  }
+}
