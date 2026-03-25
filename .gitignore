@@ -1,6 +1,3 @@
-# Large temporary images
-freepik*.jpeg
-
 # Node modules
 node_modules/
 
